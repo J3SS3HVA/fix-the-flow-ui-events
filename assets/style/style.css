@@ -71,6 +71,34 @@ a:hover {
   transition: 0.5s;
 }
 
+.LONGPRESS{
+  animation-name: centreer-animation;
+  animation-duration: 5s;
+	animation-delay: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+
+}
+
+@keyframes centreer-animation {
+  0% {
+		
+  }
+  50% {
+		
+		transform: translatey(20em) translateX(-500%);	
+    background-color: yellow;
+    color: var(--highlight-secondary);
+    border: var(--highlight-secondary);
+  }
+	
+	100% {
+		
+		transform: translateY(0) rotateY(0deg);
+    
+	}
+}
+
 /* Jump animation on the interaction link */
 a:nth-of-type(12) {
   position: relative;

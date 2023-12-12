@@ -9,6 +9,7 @@ let key_press = document.querySelector('a:nth-of-type(7)')
 let mouse_move = document.querySelector('a:nth-of-type(8)')
 let scroll_ = document.querySelector('a:nth-of-type(9)')
 let focus_ = document.querySelector('a:nth-of-type(10)')
+let long_press = document.querySelector('a:nth-of-type(11)')
 
 interaction.addEventListener('click', jumpHandler)
 interaction.addEventListener('animationend', jumpHandler)
@@ -94,3 +95,24 @@ focus_.addEventListener('focus', giant)
 function giant() {
   focus_.classList.toggle('FOCUS')
 }
+
+const long_press2 = (callback, duration) => {
+  let timeout;
+  
+  const start = () => {
+    timeout = window.setTimeout(callback, duration);
+  };
+
+  const end = () => {
+    window.clearTimeout(timeout);
+  };
+
+  long_press.addEventListener('mousedown', start);
+  long_press.addEventListener('mouseup', end);
+};
+
+long_press2(() => {
+  long_press.classList.toggle('LONGPRESS');
+}, 600);
+
+console.log(long_press);
